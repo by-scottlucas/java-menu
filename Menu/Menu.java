@@ -10,8 +10,9 @@ class Sanduiche {
     private String temperatura;
     private double preco;
 
-    public Sanduiche(String n) {
+    public Sanduiche(String n, double p) {
         this.nome = n;
+        this.preco = p;
     }
 
     public String getNome() {
@@ -30,18 +31,22 @@ class Sanduiche {
         System.out.println("Tipo: " + getTipo());
     }
 
+    public void setPreco(double p) {
+        this.preco = p;
+    }
+
 }
 
 // Subclasse que herda de um sanduiche
 class Frio extends Sanduiche {
 
-    public Frio(String n) {
-        super(n);
+    public Frio(String n, double p) {
+        super(n, p);
     }
 
     @Override
     public void desc() {
-        System.out.println(" | Temperatura: Frio | R$ 8.00");
+        System.out.println(" | Servido Frio");
     }
 
 }
@@ -49,13 +54,13 @@ class Frio extends Sanduiche {
 // Subclasse que herda de um sanduiche
 class Quente extends Sanduiche {
 
-    public Quente(String n) {
-        super(n);
+    public Quente(String n, double p) {
+        super(n, p);
     }
 
     @Override
     public void desc() {
-        System.out.println(" | Temperatura: Quente | R$ 15.00");
+        System.out.println(" | Servido Quente");
     }
 
 }
@@ -72,13 +77,13 @@ public class Menu {
 
         //Adicionando um Array
         List<Sanduiche> sanduiches = new ArrayList<>();
-        sanduiches.add(new Frio("* Queijo"));
-        sanduiches.add(new Frio("* Presunto e Queijo"));
-        sanduiches.add(new Frio("* Peito de Peru"));
+        sanduiches.add(new Frio("* Queijo",8.00));
+        sanduiches.add(new Frio("* Presunto e Queijo", 10.00));
+        sanduiches.add(new Frio("* Peito de Peru", 12.00));
 
-        sanduiches.add(new Quente("* X-Salada"));
-        sanduiches.add(new Quente("* X-Churrasco"));
-        sanduiches.add(new Quente("* X-Tudo"));
+        sanduiches.add(new Quente("* X-Salada", 15.00));
+        sanduiches.add(new Quente("* X-Churrasco", 18.00));
+        sanduiches.add(new Quente("* X-Tudo", 25.00));
 
 
         // Filtro para listar os Nomes, Temperatura e Preço dos Lanches Frios
@@ -90,7 +95,7 @@ public class Menu {
         System.out.println("------------------------------------------------");
 
         frios.forEach(sanduiche -> {
-            System.out.print(sanduiche.getNome());
+            System.out.print(sanduiche.getNome() + " | R$ " + sanduiche.getPreco());
             sanduiche.desc();
         });
 
@@ -104,7 +109,7 @@ public class Menu {
         System.out.println("------------------------------------------------");
 
         quentes.forEach(sanduiche -> {
-            System.out.print(sanduiche.getNome());
+            System.out.print(sanduiche.getNome() + " | R$ " + sanduiche.getPreco());
             sanduiche.desc();
         });
         System.out.println("------------------------------------------------");
