@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 // Classe base representando um sanduiche
 class Sanduiche {
     public String nome;
-    private String temperatura;
     private double preco;
 
     public Sanduiche(String n, double p) {
@@ -19,16 +18,12 @@ class Sanduiche {
         return nome;
     }
 
-    public String getTipo() {
-        return temperatura;
-    }
-
     public double getPreco() {
         return preco;
     }
 
     public void desc() {
-        System.out.println("Tipo: " + getTipo());
+        System.out.println("Temperatura em que é servido.");
     }
 
     public void setPreco(double p) {
@@ -65,26 +60,24 @@ class Quente extends Sanduiche {
 
 }
 
-
 // Classe principal
 public class Menu {
 
     public static void main(String[] args) {
 
-        System.out.println("------------------------------------------------");  
+        System.out.println("------------------------------------------------");
         System.out.println("-------- T I P O S  D E  L A N C H E S ---------");
-        System.out.println("------------------------------------------------"); 
+        System.out.println("------------------------------------------------");
 
-        //Adicionando um Array
+        // Adicionando um Array
         List<Sanduiche> sanduiches = new ArrayList<>();
-        sanduiches.add(new Frio("* Queijo",8.00));
+        sanduiches.add(new Frio("* Queijo", 8.00));
         sanduiches.add(new Frio("* Presunto e Queijo", 10.00));
         sanduiches.add(new Frio("* Peito de Peru", 12.00));
 
         sanduiches.add(new Quente("* X-Salada", 15.00));
         sanduiches.add(new Quente("* X-Churrasco", 18.00));
         sanduiches.add(new Quente("* X-Tudo", 25.00));
-
 
         // Filtro para listar os Nomes, Temperatura e Preço dos Lanches Frios
         List<Sanduiche> frios = sanduiches.stream()
