@@ -1,3 +1,5 @@
+package Menu;
+
 public class XSalada extends Sanduiche {
 
     public XSalada(String n, String t, double p) {

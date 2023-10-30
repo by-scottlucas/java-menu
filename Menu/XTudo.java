@@ -1,3 +1,5 @@
+package Menu;
+
 public class XTudo extends Sanduiche {
 
     // Atributos
